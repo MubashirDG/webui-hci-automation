@@ -50,20 +50,6 @@ public class ABCLoginPo extends BasePO {
 
     }
 
-    public void Password(String password) throws Exception {
-        WebElement uiPassword = singleton.getDriver().findElement(By.xpath("//input[@id='password']"));
-        try {
-            Log.info("## ABCLoginPo | enterPassword() ## " + this.getClass().getName());
-            if (password.trim().length() != 0) {
-                uiSendKeys(uiPassword, password);
-            }
-        } catch (NoSuchElementException e) {
-            throw new Exception("Failed : enterPassword()" + e.getLocalizedMessage());
-        }
-        Sleep.run(1000);
-    }
-
-
     public void clickSignIn() throws Exception {
         WebElement uiSignIn = singleton.getDriver().findElement(By.xpath("//a[@id='log-in']"));
         try {
