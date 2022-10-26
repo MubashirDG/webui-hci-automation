@@ -1,12 +1,12 @@
-package web.test.ABCTests.ABCHomePage;
+package web.test.HCITests.HCIContactusPage;
 
 import Base.Common;
 import lombok.extern.java.Log;
 import org.testng.annotations.AfterClass;
 
 @Log
-public class ABC_HomePageTests extends Common {
-    private ABCLoginTest abcLoginTest;
+public class HCI_HomePageTests extends Common {
+
 
     @AfterClass
     public void cleanup() throws Exception {

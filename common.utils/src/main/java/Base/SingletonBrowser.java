@@ -105,7 +105,7 @@ public class SingletonBrowser {
 
         try {
             if (getEnv().equals("Prod")) {
-                getProp().load(new FileInputStream("src/test/resources/TestData/data_QA.properties"));
+                getProp().load(new FileInputStream("src/test/resources/TestData/data_HCI_ContactUs.properties"));
                 //log("Property file Loaded.");
             }
 
