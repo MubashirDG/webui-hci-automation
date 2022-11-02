@@ -23,10 +23,10 @@ public class HCI_ContactUsTests extends Common {
             HCIContactUsPO.getInstance().enterQuestionMessage(getProperty("questionMessage"));
             HCIContactUsPO.getInstance().enterHearAboutUs(getProperty("hearAboutUs"));
 
-            //HCIContactUsPO.getInstance().clickSubmit();
+            HCIContactUsPO.getInstance().clickSubmit();
 
           // Assert.assertTrue(HCIContactUsPO.getInstance().isSuccessfullMsgDisplayed(), "Thank you for your message. It has been sent.");
-            //SingletonBrowser.getInstance().getDriver().close();
+            SingletonBrowser.getInstance().getDriver().close();
 
 
         }catch (Exception e){
