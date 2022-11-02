@@ -2,7 +2,7 @@ package web.test.HCITests.HCIContactusPage;
 
 import Base.Common;
 import Base.SingletonBrowser;
-import HCIPo.HCIHomePage.HCIContactUsPO;
+import HCIPo.HCIContactUsPage.HCIContactUsPO;
 import lombok.extern.java.Log;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -19,7 +19,6 @@ public class HCI_ContactUsTests extends Common {
             HCIContactUsPO.getInstance().enterEmail(getProperty("email"));
             HCIContactUsPO.getInstance().enterPhoneNumber(getProperty("phoneNumber"));
             HCIContactUsPO.getInstance().enterDrpDwnImA(getProperty("imA"));
-            //HCIContactUsPO.getInstance().enterDrpDwnImA();
             HCIContactUsPO.getInstance().enterInsuranceProvider(getProperty("insuranceProvider"));
             HCIContactUsPO.getInstance().enterQuestionMessage(getProperty("questionMessage"));
             HCIContactUsPO.getInstance().enterHearAboutUs(getProperty("hearAboutUs"));
@@ -27,7 +26,7 @@ public class HCI_ContactUsTests extends Common {
             //HCIContactUsPO.getInstance().clickSubmit();
 
           // Assert.assertTrue(HCIContactUsPO.getInstance().isSuccessfullMsgDisplayed(), "Thank you for your message. It has been sent.");
-           // SingletonBrowser.getInstance().getDriver().close();
+            //SingletonBrowser.getInstance().getDriver().close();
 
 
         }catch (Exception e){
