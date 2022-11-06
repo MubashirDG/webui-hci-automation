@@ -1,4 +1,4 @@
-package HCIPo.HCIContactUsPage;
+package HCIPo.HCIPagesPO;
 
 import Base.BasePO;
 import Base.Log;

@@ -1,8 +1,8 @@
-package web.test.HCITests.HCIContactusPage;
+package web.test.HCITests.HCIPages;
 
 import Base.Common;
 import Base.SingletonBrowser;
-import HCIPo.HCIContactUsPage.HCIContactUsPO;
+import HCIPo.HCIPagesPO.HCIContactUsPO;
 import lombok.extern.java.Log;
 import org.testng.annotations.Test;
 
