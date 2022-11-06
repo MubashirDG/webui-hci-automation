@@ -7,10 +7,7 @@ import java.util.Date;
 import java.util.Random;
 
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -139,6 +136,11 @@ public class Common {
 
     public static void pageRefresh() throws Exception {
         SingletonBrowser.getInstance().getDriver().navigate().refresh();
+    }
+
+    public static void pageScroll() throws Exception {
+        JavascriptExecutor js = (JavascriptExecutor) SingletonBrowser.getInstance().getDriver();
+        js.executeScript("window.scrollBy(0,350)", "");
     }
 
 
