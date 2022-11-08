@@ -4,7 +4,7 @@
 <suite name="HCIContactUsTest">
     <test  name="HCIContactusPage.HCI_ContactUsTests" >
         <classes>
-            <class name="web.test.HCITests.HCIPages.HCI_ContactUsTests"/>
+            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>
         </classes>
     </test>
 </suite>

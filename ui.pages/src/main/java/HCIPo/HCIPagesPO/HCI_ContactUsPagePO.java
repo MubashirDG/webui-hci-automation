@@ -14,21 +14,21 @@ import java.util.List;
 import java.util.Random;
 
 
-public class HCIContactUsPO extends BasePO {
+public class HCI_ContactUsPagePO extends BasePO {
 
-    private static HCIContactUsPO hciContactUsPO;
+    private static HCI_ContactUsPagePO hciContactUsPagePO;
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
 
     private By successMessageSpinnerLocator = By.xpath("//span[@class='wpcf7-spinner']");
-    private HCIContactUsPO() {
+    private HCI_ContactUsPagePO() {
         super();
     }
 
-    public static final HCIContactUsPO getInstance() {
-        if (hciContactUsPO == null) {
-            hciContactUsPO = new HCIContactUsPO();
+    public static final HCI_ContactUsPagePO getInstance() {
+        if (hciContactUsPagePO == null) {
+            hciContactUsPagePO = new HCI_ContactUsPagePO();
         }
-        return hciContactUsPO;
+        return hciContactUsPagePO;
     }
     public void enterFirstName(String firstname) throws Exception {
         WebElement uiFirstname = singleton.getDriver().findElement(By.xpath("//input[@name='first-name']"));
