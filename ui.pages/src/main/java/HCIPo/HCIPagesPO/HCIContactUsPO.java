@@ -6,7 +6,9 @@ import Base.SingletonBrowser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 import java.util.Random;
@@ -17,6 +19,7 @@ public class HCIContactUsPO extends BasePO {
     private static HCIContactUsPO hciContactUsPO;
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
 
+    private By successMessageSpinnerLocator = By.xpath("//span[@class='wpcf7-spinner']");
     private HCIContactUsPO() {
         super();
     }
@@ -82,58 +85,18 @@ public class HCIContactUsPO extends BasePO {
         Sleep.run(1000);
     }
 
-//    public void enterDrpDwnImA(String imA) throws Exception {
-//        WebElement uiDrpDwnImA = singleton.getDriver().findElement(By.xpath("//select[@name='i-am-a']"));
-//        try {
-//            Log.info("## HCIContactUsPo | enterDrpDwnImA() ## " + this.getClass().getName());
-//            if (imA.trim().length() != 0) {
-//                Select dropdownImA = new Select(uiDrpDwnImA);
-//                dropdownImA.selectByIndex(3);
-//            }
-//
-//        } catch (NoSuchElementException e) {
-//            throw new Exception("Failed : enterDrpDwnImA()" + e.getLocalizedMessage());
-//        }
-//        Sleep.run(1000);
-//    }
-
-//    public void enterRandomDrpDwnImA(String imA) throws Exception {
-//        WebElement uiDrpDwnImA = singleton.getDriver().findElement(By.xpath("//select[@name='i-am-a']"));
-//        Select dropdownImA = new Select(uiDrpDwnImA);
-//
-//        try {
-//                Log.info("## HCIContactUsPo | enterDrpDwnImA() ## " + this.getClass().getName());
-//                if (imA.trim().length() != 0) {
-//                    int dropdownValueCount = singleton.getDriver().findElements(By.cssSelector("select[name='i-am-a']")).size();
-//                    Random random = new Random();
-//                    int index = random.nextInt(dropdownValueCount);
-//                    dropdownImA.selectByIndex(index);
-//
-//                    System.out.println("random :" + dropdownValueCount);
-//
-//                }
-//
-//        } catch (NoSuchElementException e) {
-//            throw new Exception("Failed : enterDrpDwnImA()" + e.getLocalizedMessage());
-//        }
-//        Sleep.run(1000);
-//    }
-
-    public void enterRandomDrpDwnImA(String imA) throws Exception {
+    public void enterRandomDrpDwnImA() throws Exception {
         WebElement uiDrpDwnImA = singleton.getDriver().findElement(By.xpath("//select[@name='i-am-a']"));
         Select dropdownImASelect = new Select(uiDrpDwnImA);
         List<WebElement> dropdownList = dropdownImASelect.getOptions();
         try {
             Log.info("## HCIContactUsPo | enterDrpDwnImA() ## " + this.getClass().getName());
-                if (imA.trim().length() != 0) {
-                    int dropdownValueCount = dropdownList.size();
-                    Random num = new Random();
-                    int index = num.nextInt(dropdownValueCount);
-                    dropdownImASelect.selectByIndex(index);
+            int dropdownValueCount = dropdownList.size();
+            Random num = new Random();
+            int index = num.nextInt(dropdownValueCount);
+            dropdownImASelect.selectByIndex(index);
 
-                    System.out.println("random :" + index);
-                    System.out.println(uiDrpDwnImA.getAttribute("value"));
-            }
+            System.out.println("random :" + index + "," + uiDrpDwnImA.getAttribute("value"));
 
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : enterDrpDwnImA()" + e.getLocalizedMessage());
@@ -186,14 +149,22 @@ public class HCIContactUsPO extends BasePO {
         try {
             Log.info("## HCIContactUsPo | clickSubmit() ## " + this.getClass().getName());
             uiClick(uiSubmit);
+            //waitForLoad(15000);
+            Thread.sleep(5000);
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
         }
     }
 
     public String successfullMsgDisplayed() throws Exception {
+        //waitForLoad(15000);
         WebElement successMessage = singleton.getDriver().findElement(By.xpath("//div[contains(text(),'Thank you for your message. It has been sent.')]"));
-        return successMessage.getText();
+        String text = successMessage.getText();
+        System.out.println("sucess msg :" + text);
+        return text;
     }
-
+    public void waitTillSpinnerDisable() throws Exception {
+        WebDriverWait wait = new WebDriverWait(singleton.getDriver(), 60);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(successMessageSpinnerLocator));
+    }
 }
