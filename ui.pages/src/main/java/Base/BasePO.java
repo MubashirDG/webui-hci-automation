@@ -119,7 +119,7 @@ public class BasePO {
             }
         };
 
-        SingletonBrowser.getInstance().getDriver().manage().timeouts().implicitlyWait(100, TimeUnit.MILLISECONDS);
+        SingletonBrowser.getInstance().getDriver().manage().timeouts().implicitlyWait(1000, TimeUnit.MILLISECONDS);
     }
 
     //This is common method for navigate to URL
@@ -274,5 +274,14 @@ public class BasePO {
     public static String testIdGenerator() {
         long randomNum = generateRandom(1);
         return randomNum+"QA_Automation";
+    }
+
+    public void waitForLoad(int waitForMillisecond) {
+        ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
+            public Boolean apply(WebDriver wd) {
+                return "complete".equals(((JavascriptExecutor) wd).executeScript("return document.readyState"));
+            }
+        };
+        SingletonBrowser.getInstance().getDriver().manage().timeouts().implicitlyWait(waitForMillisecond, TimeUnit.MILLISECONDS);
     }
 }
