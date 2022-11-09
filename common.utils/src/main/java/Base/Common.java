@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Common {
+    public static String getCssValue_H1FontSize;
     SingletonBrowser singletonClass = SingletonBrowser.getInstance();
     private String value = null;
 
@@ -143,5 +144,52 @@ public class Common {
         js.executeScript("window.scrollBy(0,350)", "");
     }
 
+    public static void pageNavigation(String PageUrl) throws Exception {
+        SingletonBrowser.getInstance().getDriver().navigate().to(PageUrl);
+    }
 
+    public static String getCssValueFontSize_14pxNavBar() throws Exception {
+        //waitForLoad(15000);
+        String fontSizes14pxNavBar = SingletonBrowser.getInstance().getDriver().findElement(By.xpath("//span[@class='ubermenu-target-title ubermenu-target-text']")).getCssValue("font-size");
+        System.out.println("14pxNavBar font-size :" + fontSizes14pxNavBar);
+        return fontSizes14pxNavBar;
+    }
+    public static String getCssValueFontSize_42pxH1() throws Exception {
+        //waitForLoad(15000);
+        String fontSizes42pxH1 = SingletonBrowser.getInstance().getDriver().findElement(By.xpath("//h1[@class='elementor-heading-title elementor-size-default']")).getCssValue("font-size");
+        System.out.println("42pxH1 font-size :" + fontSizes42pxH1);
+        return fontSizes42pxH1;
+    }
+    public static String getCssValueFontSizes_35pxH2() throws Exception {
+        //waitForLoad(15000);
+        String fontSizes35pxH2 = SingletonBrowser.getInstance().getDriver().findElement(By.xpath("//h2[@class='elementor-heading-title elementor-size-default']")).getCssValue("font-size");
+        System.out.println("35pxH2 font-size :" + fontSizes35pxH2);
+        return fontSizes35pxH2;
+    }
+    public static String getCssValueFontSize_45pxH2() throws Exception {
+        //waitForLoad(15000);
+        String fontSizes45pxH2 = SingletonBrowser.getInstance().getDriver().findElement(By.xpath("//h2[@class='elementor-heading-title elementor-size-default']")).getCssValue("font-size");
+        System.out.println("45pxH2 font-size :" + fontSizes45pxH2);
+        return fontSizes45pxH2;
+    }
+
+    public static String getCssValueFontSize_20pxPG() throws Exception {
+        //waitForLoad(15000);
+        String fontSizes20pxPG = SingletonBrowser.getInstance().getDriver().findElement(By.xpath("//div[@class='elementor-text-editor elementor-clearfix']")).getCssValue("font-size");
+        System.out.println("20pxPG font-size :" + fontSizes20pxPG);
+        return fontSizes20pxPG;
+    }
+    public static String getCssValueFontSize_20pxLinkButton() throws Exception {
+        //waitForLoad(15000);
+        String fontSizes20pxLinkButton = SingletonBrowser.getInstance().getDriver().findElement(By.xpath("//div[@class='elementor-text-editor elementor-clearfix']")).getCssValue("font-size");
+        System.out.println("20pxLinkButton font-size :" + fontSizes20pxLinkButton);
+        return fontSizes20pxLinkButton;
+    }
+
+    public static String getCssValueFontSize_14pxButton() throws Exception {
+        //waitForLoad(15000);
+        String fontSizes14pxButton = SingletonBrowser.getInstance().getDriver().findElement(By.xpath("//span[@class='elementor-button-text']")).getCssValue("font-size");
+        System.out.println("getCssValueFontSize_14pxButton font-size :" + fontSizes14pxButton);
+        return fontSizes14pxButton;
+    }
 }
