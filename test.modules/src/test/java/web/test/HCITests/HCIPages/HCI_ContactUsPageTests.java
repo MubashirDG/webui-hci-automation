@@ -13,7 +13,7 @@ public class HCI_ContactUsPageTests extends Common {
     @Test(testName = "VerifyContactus")
     public void VerifyContactUs() throws Exception{
         try {
-            SingletonBrowser.getInstance().getDriver().get(getProperty("url"));
+            SingletonBrowser.getInstance().getDriver().get(getProperty("contactusUrl"));
             HCI_ContactUsPagePO.getInstance().enterFirstName(getProperty("firstname"));
             HCI_ContactUsPagePO.getInstance().enterLastName(getProperty("lastname"));
             HCI_ContactUsPagePO.getInstance().enterEmail(getProperty("email"));
