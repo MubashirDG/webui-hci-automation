@@ -24,12 +24,16 @@ public class HCI_HomePagePO extends BasePO {
         return hci_HomePagePO;
     }
 
-
-    public boolean isCustomerNameDisplayed() throws Exception {
-        WebElement customerName = singleton.getDriver().findElement(By.xpath("//div[contains(text(),'Jack Gomez')]"));
-        return customerName.isDisplayed();
+    public void ClickContactUsPageNavigation() throws Exception{
+        WebElement uiContactUsPageNavigation = singleton.getDriver().findElement(By.xpath(""));
+        //li[@id='menu-item-20412']//a[@class='ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only']
+        try {
+            Base.Log.info("## HCI_HomePagePO | ClickContactUsPageNavigation() ## " + this.getClass().getName());
+            uiClick(uiContactUsPageNavigation);
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : ClickContactUsPageNavigation()" + e.getLocalizedMessage());
+        }
     }
-
 
 
 }

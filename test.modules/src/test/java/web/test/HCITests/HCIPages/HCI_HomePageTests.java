@@ -2,7 +2,12 @@ package web.test.HCITests.HCIPages;
 
 import Base.Common;
 import Base.SingletonBrowser;
+import HCIPo.HCIPagesPO.HCI_ContactUsPagePO;
+import HCIPo.HCIPagesPO.HCI_HomePagePO;
 import lombok.extern.java.Log;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -27,13 +32,11 @@ public class HCI_HomePageTests extends Common {
     }
 
     @Test(testName = "VerifyHomePageToContactUsPageNavigation")
-    public void contactUsPageNavigation() throws Exception{
+    public void ContactUsPageNavigation() throws Exception{
         try {
-            pageNavigation("contactusUrl");
-            //pageNavigation("https://hcioncology.com/contact-us/");
-        }catch (Exception e){
-            log.info("Failed : VerifyHomePageToContactUsPageNavigation");
-            throw e;
+            HCI_HomePagePO.getInstance().ClickContactUsPageNavigation();
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : clickContactUsPageNavigation()" + e.getLocalizedMessage());
         }
     }
 
