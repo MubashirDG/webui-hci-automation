@@ -68,7 +68,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterEmail()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterPhoneNumber(String phoneNumber) throws Exception {
@@ -101,7 +100,7 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterDrpDwnImA()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-}
+    }
     public void enterInsuranceProvider(String insuranceProvider) throws Exception {
         WebElement uiInsuranceProvider = singleton.getDriver().findElement(By.xpath("//input[@name='insurance-provider']"));
         try {
@@ -113,7 +112,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterInsuranceProvider()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterQuestionMessage(String questionMessage) throws Exception {
@@ -127,7 +125,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterQuestionMessage()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterHearAboutUs(String hearAboutUs) throws Exception {
@@ -148,7 +145,6 @@ public class HCI_ContactUsPagePO extends BasePO {
         try {
             Log.info("## HCIContactUsPo | clickSubmit() ## " + this.getClass().getName());
             uiClick(uiSubmit);
-            //waitForLoad(15000);
             Thread.sleep(5000);
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
@@ -156,11 +152,15 @@ public class HCI_ContactUsPagePO extends BasePO {
     }
 
     public String successfullMsgDisplayed() throws Exception {
-        //waitForLoad(15000);
         WebElement successMessage = singleton.getDriver().findElement(By.xpath("//div[contains(text(),'Thank you for your message. It has been sent.')]"));
-        String text = successMessage.getText();
-        System.out.println("sucess msg :" + text);
-        return text;
+        try {
+            Log.info("## HCIContactUsPo | clickSubmit() ## " + this.getClass().getName());
+            String text = successMessage.getText();
+            System.out.println("Success message :" + text);
+            return text;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
+        }
     }
     public void waitTillSpinnerDisable() throws Exception {
         WebDriverWait wait = new WebDriverWait(singleton.getDriver(), 60);
