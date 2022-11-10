@@ -17,13 +17,13 @@ public class HCI_HomePageTests extends Common {
     @Test(testName = "VerifyHomePageFontSizes")
     public void VerifyHomePageFontSizes() throws Exception{
         try {
-            SingletonBrowser.getInstance().getDriver().get(getProperty("homepageUrl"));
+            //SingletonBrowser.getInstance().getDriver().get(getProperty("homepageUrl"));
             Assert.assertEquals(getCssValueFontSize_45pxH2(), "45px");
             Assert.assertEquals(getCssValueFontSize_20pxPG(), "20px");
             Assert.assertEquals(getCssValueFontSize_20pxLinkButton(), "20px");
             Assert.assertEquals(getCssValueFontSize_14pxButton(), "14px");
 
-            SingletonBrowser.getInstance().getDriver().close();
+            //SingletonBrowser.getInstance().getDriver().close();
         }catch (Exception e){
             log.info("Failed : VerifyHomePageFontSizes ");
             throw e;
