@@ -20,6 +20,7 @@ public class Common {
     private String cssSizes20pxPG = "//div[@class='elementor-text-editor elementor-clearfix']";
     private String cssSizes20pxLinkButton = "//span[@class='elementor-icon-list-text']";
     private String cssSizes14pxButton = "//span[@class='elementor-button-text']";
+    private String cssFontSizes14pxNavBar = "//span[@class='ubermenu-target-title ubermenu-target-text']";
 
     //Common method save the screenshot in d drive with name "screenshot.png"
     public void getscreenshot(String nameStr) {
@@ -192,6 +193,11 @@ public class Common {
         System.out.println("14pxButton font-size :" + fontSizes14pxButton);
         return fontSizes14pxButton;
     }
-
+    public String getCssValueFontSize_14pxNavBar() throws Exception {
+        //waitForLoad(15000);
+        String fontSizes14pxNavBar = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssFontSizes14pxNavBar)).getCssValue("font-size");
+        System.out.println("14pxNavBar font-size :" + fontSizes14pxNavBar);
+        return fontSizes14pxNavBar;
+    }
 
 }

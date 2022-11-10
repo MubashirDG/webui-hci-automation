@@ -4,13 +4,9 @@
 <suite name="HCIPagesTest">
     <test  name="HCIHomePage.HCI_HomePageTests" >
         <classes>
+            <class name="web.test.HCITests.HCIPages.HCI_NavigationBarTests"/>
             <class name="web.test.HCITests.HCIPages.HCI_HomePageTests"/>
+            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>
         </classes>
     </test>
-
-<!--    <test  name="HCIContactusPage.HCI_ContactUsTests" >-->
-<!--        <classes>-->
-<!--            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>-->
-<!--        </classes>-->
-<!--    </test>-->
 </suite>
