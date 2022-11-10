@@ -34,7 +34,7 @@ public class HCI_HomePageTests extends Common {
     @Test(testName = "VerifyHomePageToContactUsPageNavigation")
     public void ContactUsPageNavigation() throws Exception{
         try {
-            HCI_HomePagePO.getInstance().ClickContactUsPageNavigation();
+            //HCI_HomePagePO.getInstance().ClickContactUsPageNavigation();
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : clickContactUsPageNavigation()" + e.getLocalizedMessage());
         }

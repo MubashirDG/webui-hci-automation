@@ -138,13 +138,13 @@ public class SingletonBrowser {
     }
 
     public void setEnv() {
-        //env=System.getProperty("env");
-        env = "Prod";
+        env=System.getProperty("env");
+        //env = "Prod";
     }
 
     public void setBrowser() {
-        //browser=System.getProperty("browser");
-        browser="Chrome";
+        browser=System.getProperty("browser");
+        //browser="Chrome";
     }
 
     public String getBrowser() {
