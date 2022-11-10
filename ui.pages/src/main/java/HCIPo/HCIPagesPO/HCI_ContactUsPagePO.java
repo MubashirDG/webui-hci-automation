@@ -30,6 +30,7 @@ public class HCI_ContactUsPagePO extends BasePO {
         }
         return hciContactUsPagePO;
     }
+
     public void enterFirstName(String firstname) throws Exception {
         WebElement uiFirstname = singleton.getDriver().findElement(By.xpath("//input[@name='first-name']"));
         try {
@@ -41,7 +42,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterFirstName()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterLastName(String lastname) throws Exception {
@@ -68,7 +68,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterEmail()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterPhoneNumber(String phoneNumber) throws Exception {
@@ -101,7 +100,7 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterDrpDwnImA()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-}
+    }
     public void enterInsuranceProvider(String insuranceProvider) throws Exception {
         WebElement uiInsuranceProvider = singleton.getDriver().findElement(By.xpath("//input[@name='insurance-provider']"));
         try {
@@ -113,7 +112,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterInsuranceProvider()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterQuestionMessage(String questionMessage) throws Exception {
@@ -127,7 +125,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterQuestionMessage()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterHearAboutUs(String hearAboutUs) throws Exception {
@@ -162,6 +159,7 @@ public class HCI_ContactUsPagePO extends BasePO {
         System.out.println("sucess msg :" + text);
         return text;
     }
+
     public void waitTillSpinnerDisable() throws Exception {
         WebDriverWait wait = new WebDriverWait(singleton.getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(successMessageSpinnerLocator));
