@@ -25,7 +25,7 @@ public class HCI_ContactUsPageTests extends Common {
             HCI_ContactUsPagePO.getInstance().enterHearAboutUs(getProperty("hearAboutUs"));
            // HCI_ContactUsPagePO.getInstance().clickSubmit();
             //Assert.assertEquals(HCI_ContactUsPagePO.getInstance().successfullMsgDisplayed(), "Thank you for your message. It has been sent.");
-           // SingletonBrowser.getInstance().getDriver().close();
+           SingletonBrowser.getInstance().getDriver().close();
 
         }catch (Exception e){
             log.info("Failed : VerifyContactus ");

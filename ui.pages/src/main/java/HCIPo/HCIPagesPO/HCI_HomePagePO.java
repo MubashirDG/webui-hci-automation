@@ -1,8 +1,6 @@
 package HCIPo.HCIPagesPO;
 
 import Base.BasePO;
-import Base.Common;
-import Base.Log;
 import Base.SingletonBrowser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -12,7 +10,6 @@ public class HCI_HomePagePO extends BasePO {
     private static HCI_HomePagePO hci_HomePagePO;
 
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
-    //private Common singletonClass = Common.getCssValue_H1FontSize();
     private HCI_HomePagePO() {
         super();
     }
