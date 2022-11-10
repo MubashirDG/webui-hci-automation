@@ -18,9 +18,8 @@ public class Common {
     private String cssSizes45pxH2 = "//h2[@class='elementor-heading-title elementor-size-default']";
     private String cssSizes35pxH2 = "//h2[@class='elementor-heading-title elementor-size-default']";
     private String cssSizes20pxPG = "//div[@class='elementor-text-editor elementor-clearfix']";
-    private String cssSizes20pxLinkButton = "//div[@class='elementor-text-editor elementor-clearfix']";
+    private String cssSizes20pxLinkButton = "//span[@class='elementor-icon-list-text']";
     private String cssSizes14pxButton = "//span[@class='elementor-button-text']";
-    private String cssFontSizes14pxNavBar = "//span[@class='ubermenu-target-title ubermenu-target-text']";
 
     //Common method save the screenshot in d drive with name "screenshot.png"
     public void getscreenshot(String nameStr) {
@@ -190,14 +189,9 @@ public class Common {
     public String getCssValueFontSize_14pxButton() throws Exception {
         //waitForLoad(15000);
         String fontSizes14pxButton = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssSizes14pxButton)).getCssValue("font-size");
-        System.out.println("getCssValueFontSize_14pxButton font-size :" + fontSizes14pxButton);
+        System.out.println("14pxButton font-size :" + fontSizes14pxButton);
         return fontSizes14pxButton;
     }
 
-    public String getCssValueFontSize_14pxNavBar() throws Exception {
-        //waitForLoad(15000);
-        String fontSizes14pxNavBar = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssFontSizes14pxNavBar)).getCssValue("font-size");
-        System.out.println("14pxNavBar font-size :" + fontSizes14pxNavBar);
-        return fontSizes14pxNavBar;
-    }
+
 }
