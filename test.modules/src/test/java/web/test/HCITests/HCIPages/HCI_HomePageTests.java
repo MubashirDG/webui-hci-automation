@@ -18,11 +18,11 @@ public class HCI_HomePageTests extends Common {
     public void VerifyHomePageFontSizes() throws Exception{
         try {
             SingletonBrowser.getInstance().getDriver().get(getProperty("homepageUrl"));
-            Assert.assertEquals(Common.getCssValueFontSize_45pxH2(), "45px");
-            Assert.assertEquals(Common.getCssValueFontSize_20pxPG(), "20px");
-            Assert.assertEquals(Common.getCssValueFontSize_20pxLinkButton(), "20px");
-            Assert.assertEquals(Common.getCssValueFontSize_14pxNavBar(), "14px");
-            Assert.assertEquals(Common.getCssValueFontSize_14pxButton(), "14px");
+            Assert.assertEquals(getCssValueFontSize_45pxH2(), "45px");
+            Assert.assertEquals(getCssValueFontSize_20pxPG(), "20px");
+            Assert.assertEquals(getCssValueFontSize_14pxNavBar(), "14px");
+            Assert.assertEquals(getCssValueFontSize_20pxLinkButton(), "20px");
+            Assert.assertEquals(getCssValueFontSize_14pxButton(), "14px");
 
             SingletonBrowser.getInstance().getDriver().close();
         }catch (Exception e){
@@ -38,11 +38,6 @@ public class HCI_HomePageTests extends Common {
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : clickContactUsPageNavigation()" + e.getLocalizedMessage());
         }
-    }
-
-    @Test(testName = "VerifyHomePageVideo1")
-    public void VerifyHomePageVideo1() throws Exception{
-
     }
 
 
