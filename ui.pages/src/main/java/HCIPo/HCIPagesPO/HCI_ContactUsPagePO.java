@@ -30,6 +30,7 @@ public class HCI_ContactUsPagePO extends BasePO {
         }
         return hciContactUsPagePO;
     }
+
     public void enterFirstName(String firstname) throws Exception {
         WebElement uiFirstname = singleton.getDriver().findElement(By.xpath("//input[@name='first-name']"));
         try {
@@ -41,7 +42,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterFirstName()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterLastName(String lastname) throws Exception {
@@ -55,7 +55,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterLastName()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterEmail(String email) throws Exception {
@@ -163,6 +162,7 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
         }
     }
+
     public void waitTillSpinnerDisable() throws Exception {
         WebDriverWait wait = new WebDriverWait(singleton.getDriver(), 60);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(successMessageSpinnerLocator));
