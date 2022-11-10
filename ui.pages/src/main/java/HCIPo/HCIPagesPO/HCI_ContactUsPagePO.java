@@ -145,7 +145,6 @@ public class HCI_ContactUsPagePO extends BasePO {
         try {
             Log.info("## HCIContactUsPo | clickSubmit() ## " + this.getClass().getName());
             uiClick(uiSubmit);
-            //waitForLoad(15000);
             Thread.sleep(5000);
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
@@ -153,11 +152,15 @@ public class HCI_ContactUsPagePO extends BasePO {
     }
 
     public String successfullMsgDisplayed() throws Exception {
-        //waitForLoad(15000);
         WebElement successMessage = singleton.getDriver().findElement(By.xpath("//div[contains(text(),'Thank you for your message. It has been sent.')]"));
-        String text = successMessage.getText();
-        System.out.println("sucess msg :" + text);
-        return text;
+        try {
+            Log.info("## HCIContactUsPo | clickSubmit() ## " + this.getClass().getName());
+            String text = successMessage.getText();
+            System.out.println("Success message :" + text);
+            return text;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
+        }
     }
 
     public void waitTillSpinnerDisable() throws Exception {
