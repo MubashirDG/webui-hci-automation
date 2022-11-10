@@ -20,7 +20,6 @@ public class HCI_HomePageTests extends Common {
             SingletonBrowser.getInstance().getDriver().get(getProperty("homepageUrl"));
             Assert.assertEquals(getCssValueFontSize_45pxH2(), "45px");
             Assert.assertEquals(getCssValueFontSize_20pxPG(), "20px");
-            Assert.assertEquals(getCssValueFontSize_14pxNavBar(), "14px");
             Assert.assertEquals(getCssValueFontSize_20pxLinkButton(), "20px");
             Assert.assertEquals(getCssValueFontSize_14pxButton(), "14px");
 
