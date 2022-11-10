@@ -55,7 +55,6 @@ public class HCI_ContactUsPagePO extends BasePO {
             throw new Exception("Failed : enterLastName()" + e.getLocalizedMessage());
         }
         Sleep.run(1000);
-
     }
 
     public void enterEmail(String email) throws Exception {
