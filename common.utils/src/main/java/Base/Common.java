@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
@@ -154,48 +155,48 @@ public class Common {
 
     public String getCssValueFontSize_42pxH1() throws Exception {
         //waitForLoad(15000);
-        String fontSizes42pxH1 = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssSizes42pxH1)).getCssValue("font-size");
+        String fontSizes42pxH1 = singletonClass.getDriver().findElement(By.xpath(cssSizes42pxH1)).getCssValue("font-size");
         System.out.println("42pxH1 font-size :" + fontSizes42pxH1);
         return fontSizes42pxH1;
     }
 
     public String getCssValueFontSize_45pxH2() throws Exception {
         //waitForLoad(15000);
-        String fontSizes45pxH2 = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssSizes45pxH2)).getCssValue("font-size");
+        String fontSizes45pxH2 = singletonClass.getDriver().findElement(By.xpath(cssSizes45pxH2)).getCssValue("font-size");
         System.out.println("45pxH2 font-size :" + fontSizes45pxH2);
         return fontSizes45pxH2;
     }
 
     public String getCssValueFontSizes_35pxH2() throws Exception {
         //waitForLoad(15000);
-        String fontSizes35pxH2 = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssSizes35pxH2)).getCssValue("font-size");
+        String fontSizes35pxH2 = singletonClass.getDriver().findElement(By.xpath(cssSizes35pxH2)).getCssValue("font-size");
         System.out.println("35pxH2 font-size :" + fontSizes35pxH2);
         return fontSizes35pxH2;
     }
 
     public String getCssValueFontSize_20pxPG() throws Exception {
         //waitForLoad(15000);
-        String fontSizes20pxPG = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssSizes20pxPG)).getCssValue("font-size");
+        String fontSizes20pxPG = singletonClass.getDriver().findElement(By.xpath(cssSizes20pxPG)).getCssValue("font-size");
         System.out.println("20pxPG font-size :" + fontSizes20pxPG);
         return fontSizes20pxPG;
     }
 
     public String getCssValueFontSize_20pxLinkButton() throws Exception {
         //waitForLoad(15000);
-        String fontSizes20pxLinkButton = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssSizes20pxLinkButton)).getCssValue("font-size");
+        String fontSizes20pxLinkButton = singletonClass.getDriver().findElement(By.xpath(cssSizes20pxLinkButton)).getCssValue("font-size");
         System.out.println("20pxLinkButton font-size :" + fontSizes20pxLinkButton);
         return fontSizes20pxLinkButton;
     }
 
     public String getCssValueFontSize_14pxButton() throws Exception {
         //waitForLoad(15000);
-        String fontSizes14pxButton = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssSizes14pxButton)).getCssValue("font-size");
+        String fontSizes14pxButton = singletonClass.getDriver().findElement(By.xpath(cssSizes14pxButton)).getCssValue("font-size");
         System.out.println("14pxButton font-size :" + fontSizes14pxButton);
         return fontSizes14pxButton;
     }
     public String getCssValueFontSize_14pxNavBar() throws Exception {
         //waitForLoad(15000);
-        String fontSizes14pxNavBar = SingletonBrowser.getInstance().getDriver().findElement(By.xpath(cssFontSizes14pxNavBar)).getCssValue("font-size");
+        String fontSizes14pxNavBar = singletonClass.getDriver().findElement(By.xpath(cssFontSizes14pxNavBar)).getCssValue("font-size");
         System.out.println("14pxNavBar font-size :" + fontSizes14pxNavBar);
         return fontSizes14pxNavBar;
     }
