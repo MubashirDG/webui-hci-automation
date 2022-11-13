@@ -21,13 +21,12 @@ public class HCI_ContactUsPageTests extends Common {
             HCI_ContactUsPagePO.getInstance().enterRandomDrpDwnImA();
             HCI_ContactUsPagePO.getInstance().enterInsuranceProvider(getProperty("insuranceProvider"));
             HCI_ContactUsPagePO.getInstance().enterQuestionMessage(getProperty("questionMessage"));
-            Common.pageScroll();
+            pageScroll("window.scrollBy(0,350)");
             HCI_ContactUsPagePO.getInstance().enterHearAboutUs(getProperty("hearAboutUs"));
-           // HCI_ContactUsPagePO.getInstance().clickSubmit();
-            //Assert.assertEquals(HCI_ContactUsPagePO.getInstance().successfullMsgDisplayed(), "Thank you for your message. It has been sent.");
-           SingletonBrowser.getInstance().getDriver().close();
-
-        }catch (Exception e){
+            HCI_ContactUsPagePO.getInstance().clickSubmit();
+            Assert.assertEquals(HCI_ContactUsPagePO.getInstance().successfullMsgDisplayed(), "Thank you for your message. It has been sent.");
+            SingletonBrowser.getInstance().getDriver().close();
+        } catch (Exception e){
             log.info("Failed : VerifyContactus ");
             throw e;
         }

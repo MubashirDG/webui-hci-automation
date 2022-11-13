@@ -1,4 +1,10 @@
 package Base;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -6,11 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Common {
     SingletonBrowser singletonClass = SingletonBrowser.getInstance();
@@ -136,7 +137,7 @@ public class Common {
     }
 
     public static void navigateToNewTab(int tabIndex) throws Exception {
-        ArrayList<String> tabs2 = new ArrayList<String> (SingletonBrowser.getInstance().getDriver().getWindowHandles());
+        ArrayList<String> tabs2 = new ArrayList<String>(SingletonBrowser.getInstance().getDriver().getWindowHandles());
         SingletonBrowser.getInstance().getDriver().switchTo().window(tabs2.get(tabIndex));
     }
 
@@ -144,61 +145,102 @@ public class Common {
         SingletonBrowser.getInstance().getDriver().navigate().refresh();
     }
 
-    public static void pageScroll() throws Exception {
-        JavascriptExecutor js = (JavascriptExecutor) SingletonBrowser.getInstance().getDriver();
-        js.executeScript("window.scrollBy(0,350)", "");
+    public static void pageScroll(String x) throws Exception {
+        try {
+            JavascriptExecutor js = (JavascriptExecutor) SingletonBrowser.getInstance().getDriver();
+            js.executeScript(x, "");
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
+        }
     }
 
     public static void pageNavigation(String PageUrl) throws Exception {
         SingletonBrowser.getInstance().getDriver().navigate().to(PageUrl);
     }
 
-    public String getCssValueFontSize_42pxH1() throws Exception {
-        //waitForLoad(15000);
-        String fontSizes42pxH1 = singletonClass.getDriver().findElement(By.xpath(cssSizes42pxH1)).getCssValue("font-size");
-        System.out.println("42pxH1 font-size :" + fontSizes42pxH1);
-        return fontSizes42pxH1;
+    public static void implicitlyWait(int second) throws Exception {
+        try {
+            SingletonBrowser.getInstance().getDriver().manage().timeouts().implicitlyWait(second, TimeUnit.SECONDS);
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : implicitlyWait(int second)" + e.getLocalizedMessage());
+        }
     }
 
-    public String getCssValueFontSize_45pxH2() throws Exception {
-        //waitForLoad(15000);
-        String fontSizes45pxH2 = singletonClass.getDriver().findElement(By.xpath(cssSizes45pxH2)).getCssValue("font-size");
-        System.out.println("45pxH2 font-size :" + fontSizes45pxH2);
-        return fontSizes45pxH2;
+    public String getCssValueFontSize_42pxH1() throws Exception {
+        try {
+            String fontSizes42pxH1 = singletonClass.getDriver().findElement(By.xpath(cssSizes42pxH1)).getCssValue("font-size");
+            System.out.println("42pxH1 font-size :" + fontSizes42pxH1);
+            return fontSizes42pxH1;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : getCssValueFontSize_42pxH1()" + e.getLocalizedMessage());
+        }
     }
 
     public String getCssValueFontSizes_35pxH2() throws Exception {
-        //waitForLoad(15000);
-        String fontSizes35pxH2 = singletonClass.getDriver().findElement(By.xpath(cssSizes35pxH2)).getCssValue("font-size");
-        System.out.println("35pxH2 font-size :" + fontSizes35pxH2);
-        return fontSizes35pxH2;
+        try {
+            String fontSizes35pxH2 = singletonClass.getDriver().findElement(By.xpath(cssSizes35pxH2)).getCssValue("font-size");
+            System.out.println("35pxH2 font-size :" + fontSizes35pxH2);
+            return fontSizes35pxH2;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : getCssValueFontSizes_35pxH2()" + e.getLocalizedMessage());
+        }
     }
 
     public String getCssValueFontSize_20pxPG() throws Exception {
-        //waitForLoad(15000);
-        String fontSizes20pxPG = singletonClass.getDriver().findElement(By.xpath(cssSizes20pxPG)).getCssValue("font-size");
-        System.out.println("20pxPG font-size :" + fontSizes20pxPG);
-        return fontSizes20pxPG;
+        try {
+            String fontSizes20pxPG = singletonClass.getDriver().findElement(By.xpath(cssSizes20pxPG)).getCssValue("font-size");
+            System.out.println("20pxPG font-size :" + fontSizes20pxPG);
+            return fontSizes20pxPG;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : getCssValueFontSize_20pxPG()" + e.getLocalizedMessage());
+        }
     }
 
     public String getCssValueFontSize_20pxLinkButton() throws Exception {
-        //waitForLoad(15000);
-        String fontSizes20pxLinkButton = singletonClass.getDriver().findElement(By.xpath(cssSizes20pxLinkButton)).getCssValue("font-size");
-        System.out.println("20pxLinkButton font-size :" + fontSizes20pxLinkButton);
-        return fontSizes20pxLinkButton;
+        try {
+            String fontSizes20pxLinkButton = singletonClass.getDriver().findElement(By.xpath(cssSizes20pxLinkButton)).getCssValue("font-size");
+            System.out.println("20pxLinkButton font-size :" + fontSizes20pxLinkButton);
+            return fontSizes20pxLinkButton;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : getCssValueFontSize_20pxLinkButton()" + e.getLocalizedMessage());
+        }
     }
 
     public String getCssValueFontSize_14pxButton() throws Exception {
-        //waitForLoad(15000);
-        String fontSizes14pxButton = singletonClass.getDriver().findElement(By.xpath(cssSizes14pxButton)).getCssValue("font-size");
-        System.out.println("14pxButton font-size :" + fontSizes14pxButton);
-        return fontSizes14pxButton;
-    }
-    public String getCssValueFontSize_14pxNavBar() throws Exception {
-        //waitForLoad(15000);
-        String fontSizes14pxNavBar = singletonClass.getDriver().findElement(By.xpath(cssFontSizes14pxNavBar)).getCssValue("font-size");
-        System.out.println("14pxNavBar font-size :" + fontSizes14pxNavBar);
-        return fontSizes14pxNavBar;
+        try {
+            String fontSizes14pxButton = singletonClass.getDriver().findElement(By.xpath(cssSizes14pxButton)).getCssValue("font-size");
+            System.out.println("14pxButton font-size :" + fontSizes14pxButton);
+            return fontSizes14pxButton;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : getCssValueFontSize_14pxButton()" + e.getLocalizedMessage());
+        }
     }
 
+    public String getCssValueFontSize_14pxNavBar() throws Exception {
+        try {
+            String fontSizes14pxNavBar = singletonClass.getDriver().findElement(By.xpath(cssFontSizes14pxNavBar)).getCssValue("font-size");
+            System.out.println("14pxNavBar font-size :" + fontSizes14pxNavBar);
+            return fontSizes14pxNavBar;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : getCssValueFontSize_14pxNavBar()" + e.getLocalizedMessage());
+        }
+    }
+    public String getCssValueFontSize_45pxH2() throws Exception {
+        try {
+            String fontSizes45pxH2 = singletonClass.getDriver().findElement(By.xpath(cssSizes45pxH2)).getCssValue("font-size");
+            System.out.println("45pxH2 font-size :" + fontSizes45pxH2);
+            return fontSizes45pxH2;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : getCssValueFontSize_45pxH2()" + e.getLocalizedMessage());
+        }
+    }
+
+    public void backToTop() throws Exception {
+        try {
+            WebElement backToTop = singletonClass.getDriver().findElement(By.xpath("//a[@title ='Back to top']"));
+            backToTop.click();
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : backToTop()" + e.getLocalizedMessage());
+        }
+    }
 }

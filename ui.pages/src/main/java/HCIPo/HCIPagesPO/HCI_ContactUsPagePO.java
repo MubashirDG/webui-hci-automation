@@ -164,7 +164,11 @@ public class HCI_ContactUsPagePO extends BasePO {
     }
 
     public void waitTillSpinnerDisable() throws Exception {
-        WebDriverWait wait = new WebDriverWait(singleton.getDriver(), 60);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(successMessageSpinnerLocator));
+        try {
+            WebDriverWait wait = new WebDriverWait(singleton.getDriver(), 60);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(successMessageSpinnerLocator));
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
+        }
     }
 }
