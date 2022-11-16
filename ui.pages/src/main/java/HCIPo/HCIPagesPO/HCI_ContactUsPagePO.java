@@ -1,6 +1,7 @@
 package HCIPo.HCIPagesPO;
 
 import Base.BasePO;
+import Base.Common;
 import Base.Log;
 import Base.SingletonBrowser;
 import org.openqa.selenium.By;
@@ -31,6 +32,13 @@ public class HCI_ContactUsPagePO extends BasePO {
         return hciContactUsPagePO;
     }
 
+    public void ContactUsPageLoad()throws Exception{
+        try {
+            Common.implicitlyWait(70);
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : enterFirstName()" + e.getLocalizedMessage());
+        }
+    }
     public void enterFirstName(String firstname) throws Exception {
         WebElement uiFirstname = singleton.getDriver().findElement(By.xpath("//input[@name='first-name']"));
         try {
@@ -164,7 +172,11 @@ public class HCI_ContactUsPagePO extends BasePO {
     }
 
     public void waitTillSpinnerDisable() throws Exception {
-        WebDriverWait wait = new WebDriverWait(singleton.getDriver(), 60);
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(successMessageSpinnerLocator));
+        try {
+            WebDriverWait wait = new WebDriverWait(singleton.getDriver(), 60);
+            wait.until(ExpectedConditions.invisibilityOfElementLocated(successMessageSpinnerLocator));
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
+        }
     }
 }
