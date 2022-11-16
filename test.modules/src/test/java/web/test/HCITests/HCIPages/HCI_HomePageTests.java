@@ -13,6 +13,7 @@ public class HCI_HomePageTests extends Common {
     @Test(testName = "VerifyHomePageFontSizes")
     public void VerifyHomePageFontSizes() throws Exception{
         try {
+            HCI_HomePagePO.getInstance().HomePageLoad();
             Assert.assertEquals(getCssValueFontSize_45pxH2(), "45px");
             Assert.assertEquals(getCssValueFontSize_20pxPG(), "20px");
             Assert.assertEquals(getCssValueFontSize_20pxLinkButton(), "20px");
@@ -24,10 +25,9 @@ public class HCI_HomePageTests extends Common {
     }
 
     @Test(testName = "VerifyHomePagePlayVideo1")
-    public void HomePagePlayVideo1() throws Exception {
+    public void VerifyHomePagePlayVideo() throws Exception {
         try {
             HCI_HomePagePO.getInstance().PlayVideo1();
-            //Assert.assertTrue(HCI_HomePagePO.getInstance().isVideoPlaySuccess(), "end time");
             backToTop();
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());

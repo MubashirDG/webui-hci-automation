@@ -9,8 +9,8 @@ public class HCI_FooterPO extends BasePO {
     private static HCI_FooterPO hci_FooterPO;
 
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
-    private String cssStayConnectedFontSizes18pxFooter = "//fontsninja-text[@id='fontsninja-text-381']";
-    private String cssJoinOurNewsletterFontSizes18pxFooter = "//fontsninja-text[@id='fontsninja-text-417']";
+    private String cssStayConnectedJoinOurNewsLetterFontSizes18pxH2Footer = "//fontsninja-text[@id='fontsninja-text-787']";
+    private String cssJoinOurNewsletterFontSizes18pxFooter = "";
     private HCI_FooterPO() {
         super();
     }
@@ -22,13 +22,13 @@ public class HCI_FooterPO extends BasePO {
         return hci_FooterPO;
     }
 
-    public String getStayConnectedFontSize_18pxFooter() throws Exception {
+    public String getStayConnectedJoinOurNewsLetterFontSize_18pxH2Footer() throws Exception {
         try{
-            String fontSizes14pxNavBar = singleton.getDriver().findElement(By.xpath(cssStayConnectedFontSizes18pxFooter)).getCssValue("font-size");
-            System.out.println("StayConnectedFontSize_18pxFooter font-size :" + fontSizes14pxNavBar);
-            return fontSizes14pxNavBar;
+            String fontSizes18pxH2Footer = singleton.getDriver().findElement(By.xpath(cssStayConnectedJoinOurNewsLetterFontSizes18pxH2Footer)).getCssValue("font-size");
+            System.out.println("StayConnectedJoinOurNewsLetterFontSizes_18pxFooter font-size :" + fontSizes18pxH2Footer);
+            return fontSizes18pxH2Footer;
         } catch (NoSuchElementException e) {
-            throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
+            throw new Exception("Failed : getStayConnectedJoinOurNewsLetterFontSize_18pxH2Footer()" + e.getLocalizedMessage());
         }
     }
 
@@ -38,7 +38,7 @@ public class HCI_FooterPO extends BasePO {
             System.out.println("JoinOurNewsletterFontSize_18pxFooter font-size :" + fontSizes14pxNavBar);
             return fontSizes14pxNavBar;
         } catch (NoSuchElementException e) {
-            throw new Exception("Failed : clickSubmit()" + e.getLocalizedMessage());
+            throw new Exception("Failed : getStayConnectedFontSize_18pxFooter()" + e.getLocalizedMessage());
     }
     }
 }

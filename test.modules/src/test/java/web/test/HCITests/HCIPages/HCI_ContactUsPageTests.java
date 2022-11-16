@@ -14,6 +14,7 @@ public class HCI_ContactUsPageTests extends Common {
     public void VerifyContactUs() throws Exception{
         try {
             SingletonBrowser.getInstance().getDriver().get(getProperty("contactusUrl"));
+            HCI_ContactUsPagePO.getInstance().ContactUsPageLoad();
             HCI_ContactUsPagePO.getInstance().enterFirstName(getProperty("firstname"));
             HCI_ContactUsPagePO.getInstance().enterLastName(getProperty("lastname"));
             HCI_ContactUsPagePO.getInstance().enterEmail(getProperty("email"));
@@ -21,7 +22,7 @@ public class HCI_ContactUsPageTests extends Common {
             HCI_ContactUsPagePO.getInstance().enterRandomDrpDwnImA();
             HCI_ContactUsPagePO.getInstance().enterInsuranceProvider(getProperty("insuranceProvider"));
             HCI_ContactUsPagePO.getInstance().enterQuestionMessage(getProperty("questionMessage"));
-            pageScroll("window.scrollBy(0,350)");
+            pageScroll("window.scrollBy(0,150)");
             HCI_ContactUsPagePO.getInstance().enterHearAboutUs(getProperty("hearAboutUs"));
             HCI_ContactUsPagePO.getInstance().clickSubmit();
             Assert.assertEquals(HCI_ContactUsPagePO.getInstance().successfullMsgDisplayed(), "Thank you for your message. It has been sent.");
