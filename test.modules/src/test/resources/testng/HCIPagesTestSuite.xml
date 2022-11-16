@@ -2,10 +2,16 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="HCIPagesTest">
-    <test  name="HCIHomePage.HCI_HomePageTests" >
+    <test name="HCIPages.HCI_PagesTests">
         <classes>
             <class name="web.test.HCITests.HCIPages.HCI_NavigationBarTests"/>
-            <class name="web.test.HCITests.HCIPages.HCI_HomePageTests"/>
+
+            <class name="web.test.HCITests.HCIPages.HCI_HomePageTests">
+                <methods>
+                    <include name="VerifyHomePageFontSizes"></include>
+                    <include name="VerifyHomePagePlayVideo"></include>
+                </methods>
+            </class>
             <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>
         </classes>
     </test>
