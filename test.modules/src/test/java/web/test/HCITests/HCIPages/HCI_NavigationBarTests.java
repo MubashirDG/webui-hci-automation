@@ -13,9 +13,11 @@ public class HCI_NavigationBarTests extends Common {
     public void VerifyNavigationBarFontSizes() throws Exception{
         try {
             SingletonBrowser.getInstance().getDriver().get(getProperty("homepageUrl"));
+            implicitlyWait(2700);
             Assert.assertEquals(getCssValueFontSize_14pxNavBar(), "14px");
-            //SingletonBrowser.getInstance().getDriver().close();
-        }catch (Exception e){
+            pageScroll("window.scrollBy(0,3200)");
+
+        } catch (Exception e){
             log.info("Failed : VerifyNavigationBarFontSizes ");
             throw e;
         }

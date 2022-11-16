@@ -1,15 +1,22 @@
 package HCIPo.HCIPagesPO;
 
 import Base.BasePO;
+import Base.Common;
 import Base.SingletonBrowser;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class HCI_HomePagePO extends BasePO {
     private static HCI_HomePagePO hci_HomePagePO;
 
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
+
     private HCI_HomePagePO() {
         super();
     }
@@ -20,17 +27,52 @@ public class HCI_HomePagePO extends BasePO {
         }
         return hci_HomePagePO;
     }
+    public void HomePageLoad()throws Exception{
+        try {
+            Common.implicitlyWait(50);
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : enterFirstName()" + e.getLocalizedMessage());
+        }
+    }
+    public void PlayVideo1() throws Exception {
+        try {
+            WebElement videoImage = singleton.getDriver().findElement(By.xpath("//div[@class='elementor-element elementor-element-9208e49 elementor-widget elementor-widget-image']//img[@class='attachment-full size-full']"));
+            Common.implicitlyWait(80);
+            videoImage.click();
 
-//    public void ClickContactUsPageNavigation() throws Exception{
-//        WebElement uiContactUsPageNavigation = singleton.getDriver().findElement(By.xpath(""));
-//        //li[@id='menu-item-20412']//a[@class='ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only']
+            WebElement iFrame = singleton.getDriver().findElement(By.xpath("//iframe[@class='elementor-video-iframe']"));
+            singleton.getDriver().switchTo().frame(iFrame);
+
+            WebElement videoPlayButton = singleton.getDriver().findElement(By.xpath("//button[@aria-label='Play']"));
+            Common.waitForVisibilityOf(singleton.getDriver(),videoPlayButton ,8);
+            videoPlayButton.click();
+            Thread.sleep(13000);
+
+            WebElement videoPauseButton = singleton.getDriver().findElement(By.xpath("//button[@aria-label='Pause']"));
+            JavascriptExecutor js = (JavascriptExecutor)singleton.getDriver();
+            js.executeScript("arguments[0].click();", videoPauseButton);
+            Thread.sleep(3000);
+
+            singleton.getDriver().switchTo().defaultContent();
+
+            WebElement closeButton = singleton.getDriver().findElement(By.xpath("//i[@class='eicon-close']"));
+            closeButton.click();
+
+            Common.pageScroll("window.scrollBy(0,1500)");
+            Thread.sleep(3000);
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
+        }
+    }
+
+
+//    public boolean isVideoPlaySuccess() throws Exception {
 //        try {
-//            Base.Log.info("## HCI_HomePagePO | ClickContactUsPageNavigation() ## " + this.getClass().getName());
-//            uiClick(uiContactUsPageNavigation);
+//            WebElement isVideoPlay = singleton.getDriver().findElement(By.xpath("end time"));
+//            return isVideoPlay.isDisplayed();
+//
 //        } catch (NoSuchElementException e) {
-//            throw new Exception("Failed : ClickContactUsPageNavigation()" + e.getLocalizedMessage());
+//            throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
 //        }
 //    }
-
-
 }
