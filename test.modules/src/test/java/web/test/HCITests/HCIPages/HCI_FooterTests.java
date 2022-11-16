@@ -11,8 +11,7 @@ public class HCI_FooterTests extends Common {
     @Test(testName = "VerifyFooterFontSizes")
     public void VerifyFooterFontSizes() throws Exception{
         try {
-            Assert.assertEquals(HCI_FooterPO.getInstance().getStayConnectedFontSize_18pxFooter(), "18px");
-            Assert.assertEquals(HCI_FooterPO.getInstance().getJoinOurNewsletterFontSize_18pxFooter(), "18px");
+            Assert.assertEquals(HCI_FooterPO.getInstance().getStayConnectedJoinOurNewsLetterFontSize_18pxH2Footer(), "18px");
         } catch (Exception e){
             log.info("Failed : VerifyFooterFontSizes ");
             throw e;

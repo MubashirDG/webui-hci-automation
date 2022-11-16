@@ -2,6 +2,7 @@ package Base;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -239,8 +240,31 @@ public class Common {
         try {
             WebElement backToTop = singletonClass.getDriver().findElement(By.xpath("//a[@title ='Back to top']"));
             backToTop.click();
+            Thread.sleep(5000);
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : backToTop()" + e.getLocalizedMessage());
         }
     }
+
+    public static WebElement waitForElementToBeClickable(WebDriver driver, WebElement webElement, int timeOutInSecond) throws Exception {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeOutInSecond);
+            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
+            return element;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : waitTillElementToBeClickable()" + e.getLocalizedMessage());
+        }
+    }
+    public static WebElement waitForVisibilityOf(WebDriver driver, WebElement webElement, int timeOutInSecond) throws Exception {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeOutInSecond);
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(webElement));
+            return element;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : waitTillVisibilityOfElementLocated()" + e.getLocalizedMessage());
+        }
+    }
+
+
+
 }
