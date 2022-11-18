@@ -11,9 +11,10 @@ import org.testng.annotations.Test;
 public class HCI_HomePageTests extends Common {
 
     @Test(testName = "VerifyHomePageFontSizes")
-    public void VerifyHomePageFontSizes() throws Exception{
+    public void verifyHomePageFontSizes() throws Exception{
         try {
-            HCI_HomePagePO.getInstance().HomePageLoad();
+            HCI_HomePagePO.getInstance().homePageLoad();
+            pageScroll("window.scrollBy(0,200)");
             Assert.assertEquals(getCssValueFontSize_45pxH2(), "45px");
             Assert.assertEquals(getCssValueFontSize_20pxPG(), "20px");
             Assert.assertEquals(getCssValueFontSize_20pxLinkButton(), "20px");
@@ -25,12 +26,23 @@ public class HCI_HomePageTests extends Common {
     }
 
     @Test(testName = "VerifyHomePagePlayVideo1")
-    public void VerifyHomePagePlayVideo() throws Exception {
+    public void verifyHomePagePlayVideo() throws Exception {
         try {
-            HCI_HomePagePO.getInstance().PlayVideo1();
+            HCI_HomePagePO.getInstance().playVideo1();
             backToTop();
+            Thread.sleep(4000);
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
+        }
+    }
+
+
+    @Test(testName = "verifyRedirectHyperthermiaSubNav")
+    public void verifyRedirectHyperthermiaSubNav() throws Exception {
+        try {
+            HCI_HomePagePO.getInstance().selectHyperthermiaNavBarHyperthermiaSubNav();
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : verifyRedirectHyperthermiaSubNav()" + e.getLocalizedMessage());
         }
     }
 

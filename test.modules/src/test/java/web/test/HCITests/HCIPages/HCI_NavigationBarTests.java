@@ -10,7 +10,7 @@ import org.testng.annotations.Test;
 public class HCI_NavigationBarTests extends Common {
 
     @Test(testName = "VerifyNavigationBarFontSizes")
-    public void VerifyNavigationBarFontSizes() throws Exception{
+    public void verifyNavigationBarFontSizes() throws Exception{
         try {
             SingletonBrowser.getInstance().getDriver().get(getProperty("homepageUrl"));
             implicitlyWait(2700);

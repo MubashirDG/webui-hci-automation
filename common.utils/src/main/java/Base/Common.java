@@ -24,6 +24,7 @@ public class Common {
     private String cssSizes20pxLinkButton = "//span[@class='elementor-icon-list-text']";
     private String cssSizes14pxButton = "//span[@class='elementor-button-text']";
     private String cssFontSizes14pxNavBar = "//span[@class='ubermenu-target-title ubermenu-target-text']";
+    private String cssSizes30pxH2 = "//h2[@class='elementor-heading-title elementor-size-default']";
 
     //Common method save the screenshot in d drive with name "screenshot.png"
     public void getscreenshot(String nameStr) {
@@ -149,7 +150,7 @@ public class Common {
     public static void pageScroll(String x) throws Exception {
         try {
             JavascriptExecutor js = (JavascriptExecutor) SingletonBrowser.getInstance().getDriver();
-            js.executeScript(x, "");
+            js.executeScript(x);
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
         }
@@ -235,6 +236,15 @@ public class Common {
             throw new Exception("Failed : getCssValueFontSize_45pxH2()" + e.getLocalizedMessage());
         }
     }
+    public String getCssValueFontSize_30pxH2() throws Exception {
+        try {
+            String fontSizes30pxH2 = singletonClass.getDriver().findElement(By.xpath(cssSizes30pxH2)).getCssValue("font-size");
+            System.out.println("30pxH2 font-size :" + fontSizes30pxH2);
+            return fontSizes30pxH2;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : getCssValueFontSize_30pxH2()" + e.getLocalizedMessage());
+        }
+    }
 
     public void backToTop() throws Exception {
         try {
@@ -265,6 +275,24 @@ public class Common {
         }
     }
 
+    public static WebElement waitTillVisibilityOfElementLocated(WebDriver driver, By locator, int timeOutInSecond) throws Exception {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeOutInSecond);
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return element;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : waitTillVisibilityOfElementLocated()" + e.getLocalizedMessage());
+        }
+    }
+    public static void pageScrollingMiddleByWebElement(By locator) throws Exception {
+        try {
+            JavascriptExecutor je = (JavascriptExecutor) SingletonBrowser.getInstance().getDriver();
+            WebElement element = SingletonBrowser.getInstance().getDriver().findElement(locator);
+            je.executeScript("arguments[0].scrollIntoView(true);",element);
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
+        }
+    }
 
 
 }

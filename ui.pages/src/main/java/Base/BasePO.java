@@ -15,6 +15,8 @@ import org.openqa.selenium.support.ui.Select;
 public class BasePO {
     public String text = null;
     public int status = 0;
+
+    private SingletonBrowser singleton = SingletonBrowser.getInstance();
     public static uiRunnable Sleep = new uiRunnable() {
 
         public void run(int data) {
@@ -276,12 +278,9 @@ public class BasePO {
         return randomNum+"QA_Automation";
     }
 
-    public void waitForLoad(int waitForMillisecond) {
-        ExpectedCondition<Boolean> pageLoadCondition = new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver wd) {
-                return "complete".equals(((JavascriptExecutor) wd).executeScript("return document.readyState"));
-            }
-        };
-        SingletonBrowser.getInstance().getDriver().manage().timeouts().implicitlyWait(waitForMillisecond, TimeUnit.MILLISECONDS);
+    public void hoverOverElement(By locator) {
+        WebElement firstElement = singleton.getDriver().findElement(locator);
+        Actions actions = new Actions(singleton.getDriver());
+        actions.moveToElement(firstElement).perform();
     }
 }

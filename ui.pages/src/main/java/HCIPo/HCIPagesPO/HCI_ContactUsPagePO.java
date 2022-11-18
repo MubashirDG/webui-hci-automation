@@ -32,11 +32,11 @@ public class HCI_ContactUsPagePO extends BasePO {
         return hciContactUsPagePO;
     }
 
-    public void ContactUsPageLoad()throws Exception{
+    public void ContactUsPageLoad() throws Exception{
         try {
             Common.implicitlyWait(70);
         } catch (NoSuchElementException e) {
-            throw new Exception("Failed : enterFirstName()" + e.getLocalizedMessage());
+            throw new Exception("Failed : ContactUsPageLoad()" + e.getLocalizedMessage());
         }
     }
     public void enterFirstName(String firstname) throws Exception {
