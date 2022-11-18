@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 @Log
 public class HCI_FooterTests extends Common {
     @Test(testName = "VerifyFooterFontSizes")
-    public void VerifyFooterFontSizes() throws Exception{
+    public void verifyFooterFontSizes() throws Exception{
         try {
             Assert.assertEquals(HCI_FooterPO.getInstance().getStayConnectedJoinOurNewsLetterFontSize_18pxH2Footer(), "18px");
         } catch (Exception e){

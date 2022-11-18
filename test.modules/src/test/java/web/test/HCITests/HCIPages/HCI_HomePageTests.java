@@ -14,6 +14,7 @@ public class HCI_HomePageTests extends Common {
     public void verifyHomePageFontSizes() throws Exception{
         try {
             HCI_HomePagePO.getInstance().homePageLoad();
+            pageScroll("window.scrollBy(0,200)");
             Assert.assertEquals(getCssValueFontSize_45pxH2(), "45px");
             Assert.assertEquals(getCssValueFontSize_20pxPG(), "20px");
             Assert.assertEquals(getCssValueFontSize_20pxLinkButton(), "20px");
@@ -36,12 +37,12 @@ public class HCI_HomePageTests extends Common {
     }
 
 
-    @Test(testName = "VerifyHyperthermiaNavBarHyperthermiaSubNav")
-    public void verifyHyperthermiaNavBarHyperthermiaSubNav() throws Exception {
+    @Test(testName = "verifyRedirectHyperthermiaSubNav")
+    public void verifyRedirectHyperthermiaSubNav() throws Exception {
         try {
             HCI_HomePagePO.getInstance().selectHyperthermiaNavBarHyperthermiaSubNav();
         } catch (NoSuchElementException e) {
-            throw new Exception("Failed : VerifyHyperthermiaNavBarHyperthermiaSubNav()" + e.getLocalizedMessage());
+            throw new Exception("Failed : verifyRedirectHyperthermiaSubNav()" + e.getLocalizedMessage());
         }
     }
 

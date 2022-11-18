@@ -280,10 +280,7 @@ public class BasePO {
 
     public void hoverOverElement(By locator) {
         WebElement firstElement = singleton.getDriver().findElement(locator);
-        //WebElement secondElement = singleton.getDriver().findElement(locator);
         Actions actions = new Actions(singleton.getDriver());
         actions.moveToElement(firstElement).perform();
-        //actions.click(firstElement);
-        //actions.build().perform();
     }
 }

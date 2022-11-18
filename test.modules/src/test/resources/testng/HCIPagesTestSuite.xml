@@ -10,10 +10,24 @@
                 <methods>
                     <include name="verifyHomePageFontSizes"></include>
 <!--                    <include name="verifyHomePagePlayVideo"></include>-->
-                    <include name="verifyHyperthermiaNavBarHyperthermiaSubNav"></include>
+                    <include name="verifyRedirectHyperthermiaSubNav"></include>
                 </methods>
+
             </class>
-            <class name="web.test.HCITests.HCIPages.HCI_HyperthermiaPageTest"/>
+            <class name="web.test.HCITests.HCIPages.HCI_HyperthermiaPageTest">
+                <methods>
+                    <include name="verifyHyperthermiaPageFontSizes"></include>
+                    <include name="verifyRedirectDiagnosisEarlyTreatmentSubNav"></include>
+                </methods>
+
+            </class>
+<!--            <class name="web.test.HCITests.HCIPages.HCI_DiagnosisEarlyTreatmentPageTests">-->
+<!--                <methods>-->
+<!--                    <include name="verifyDiagnosisEarlyTreatmentPageFontSizes"></include>-->
+<!--                    <include name="verifyRedirectHyperthermiaChemotherapySubNav"></include>-->
+<!--                </methods>-->
+
+<!--            </class>-->
 <!--            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>-->
         </classes>
     </test>

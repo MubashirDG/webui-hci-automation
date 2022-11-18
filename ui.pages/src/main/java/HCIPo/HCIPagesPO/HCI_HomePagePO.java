@@ -18,8 +18,7 @@ public class HCI_HomePagePO extends BasePO {
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
     private By hyperthermiaMainNav = By.xpath("//span[text()='HYPERTHERMIA']");
     private By hyperthermiaSubNav = By.xpath("//span[text()='Hyperthermia']");
-    private By detSubNav = By.xpath("//a[text()='Diagnosis & Early Treatment']");
-    private By hcSubNav = By.xpath("//a[text()='Hyperthermia & Chemotherapy']");
+
     private By hrtSubNav = By.xpath("//a[text()='Hyperthermia & Radiation Therapy']");
     private HCI_HomePagePO() {
         super();
@@ -70,15 +69,10 @@ public class HCI_HomePagePO extends BasePO {
     }
     public void selectHyperthermiaNavBarHyperthermiaSubNav() throws Exception {
         try {
-
-            //hoverOverElement(hyperthermiaMainNav);
-            WebElement firstElement = singleton.getDriver().findElement(hyperthermiaMainNav);
-            WebElement secondElement = singleton.getDriver().findElement(hyperthermiaSubNav);
-            Actions actions = new Actions(singleton.getDriver());
-            actions.moveToElement(firstElement);
-            actions.click(secondElement);
-            actions.build().perform();;
-            //Common.waitTillVisibilityOfElementLocated(singleton.getDriver(), hyperthermiaSubNav,20);
+            hoverOverElement(hyperthermiaMainNav);
+            WebElement subNav = singleton.getDriver().findElement(hyperthermiaSubNav);
+            Common.waitForElementToBeClickable(singleton.getDriver(),subNav ,10);
+            subNav.click();
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : selectHyperthermiaNavBarHyperthermiaSubNav()" + e.getLocalizedMessage());
         }
