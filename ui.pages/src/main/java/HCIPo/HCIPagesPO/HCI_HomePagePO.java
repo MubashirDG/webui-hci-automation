@@ -18,8 +18,6 @@ public class HCI_HomePagePO extends BasePO {
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
     private By hyperthermiaMainNav = By.xpath("//span[text()='HYPERTHERMIA']");
     private By hyperthermiaSubNav = By.xpath("//span[text()='Hyperthermia']");
-
-    private By hrtSubNav = By.xpath("//a[text()='Hyperthermia & Radiation Therapy']");
     private HCI_HomePagePO() {
         super();
     }
