@@ -17,7 +17,7 @@ public class HCI_HyperthermiaPageTest extends Common {
     public void verifyHyperthermiaPageFontSizes() throws Exception{
         try {
             HCI_HyperthermiaPagePO.getInstance().HyperthermiaPageLoad();
-            System.out.println("hyperthermiaSubNavUrl");
+            System.out.println(getProperty("hyperthermiaSubNavUrl"));
             pageScroll("window.scrollBy(0,200)");
             Assert.assertEquals(getCssValueFontSize_42pxH1(), "42px");
             Assert.assertEquals(getCssValueFontSizes_35pxH2(), "35px");

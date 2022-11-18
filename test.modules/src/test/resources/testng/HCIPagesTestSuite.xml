@@ -12,7 +12,6 @@
 <!--                    <include name="verifyHomePagePlayVideo"></include>-->
                     <include name="verifyRedirectHyperthermiaSubNav"></include>
                 </methods>
-
             </class>
             <class name="web.test.HCITests.HCIPages.HCI_HyperthermiaPageTest">
                 <methods>
@@ -21,13 +20,13 @@
                 </methods>
 
             </class>
-<!--            <class name="web.test.HCITests.HCIPages.HCI_DiagnosisEarlyTreatmentPageTests">-->
-<!--                <methods>-->
-<!--                    <include name="verifyDiagnosisEarlyTreatmentPageFontSizes"></include>-->
-<!--                    <include name="verifyRedirectHyperthermiaChemotherapySubNav"></include>-->
-<!--                </methods>-->
+            <class name="web.test.HCITests.HCIPages.HCI_DiagnosisEarlyTreatmentPageTests">
+                <methods>
+                    <include name="verifyDiagnosisEarlyTreatmentPageFontSizes"></include>
+                    <include name="verifyRedirectHyperthermiaChemotherapySubNav"></include>
+                </methods>
+            </class>
 
-<!--            </class>-->
 <!--            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>-->
         </classes>
     </test>
