@@ -12,7 +12,7 @@ public class HCI_DiagnosisEarlyTreatmentPagePO extends BasePO {
     private static HCI_DiagnosisEarlyTreatmentPagePO hciDiagnosisEarlyTreatmentPagePO;
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
     private By hyperthermiaMainNav = By.xpath("//span[text()='HYPERTHERMIA']");
-    private By HyperthermiaChemotherapySubNav = By.xpath("//span[text()='Hyperthermia & Chemotherapy']");
+    private By hyperthermiaChemotherapySubNav = By.xpath("//span[text()='Hyperthermia & Chemotherapy']");
     private HCI_DiagnosisEarlyTreatmentPagePO() {
         super();
     }
@@ -23,7 +23,7 @@ public class HCI_DiagnosisEarlyTreatmentPagePO extends BasePO {
         }
         return hciDiagnosisEarlyTreatmentPagePO;
     }
-    public void DiagnosisEarlyTreatmentPageLoad()throws Exception{
+    public void diagnosisEarlyTreatmentPageLoad()throws Exception{
         try {
             Common.implicitlyWait(70);
         } catch (NoSuchElementException e) {
@@ -33,7 +33,7 @@ public class HCI_DiagnosisEarlyTreatmentPagePO extends BasePO {
     public void selectHyperthermiaChemotherapySubNav() throws Exception {
         try {
             hoverOverElement(hyperthermiaMainNav);
-            WebElement subNav = singleton.getDriver().findElement(HyperthermiaChemotherapySubNav);
+            WebElement subNav = singleton.getDriver().findElement(hyperthermiaChemotherapySubNav);
             Common.waitForElementToBeClickable(singleton.getDriver(),subNav ,10);
             subNav.click();
         } catch (NoSuchElementException e) {

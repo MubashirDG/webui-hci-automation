@@ -27,6 +27,13 @@
                 </methods>
             </class>
 
+            <class name="web.test.HCITests.HCIPages.HCI_HyperthermiaChemotherapyPageTests">
+                <methods>
+                    <include name="verifyHyperthermiaChemotherapyPageFontSizes"></include>
+                    <include name="verifyRedirectHyperthermiaRadiationTherapySubNav"></include>
+                </methods>
+            </class>
+
 <!--            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>-->
         </classes>
     </test>

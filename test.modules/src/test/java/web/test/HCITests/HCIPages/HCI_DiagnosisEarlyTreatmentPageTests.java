@@ -15,7 +15,7 @@ public class HCI_DiagnosisEarlyTreatmentPageTests extends Common {
     @Test(testName = "verifyHyperthermiaPageFontSizes")
     public void verifyDiagnosisEarlyTreatmentPageFontSizes() throws Exception{
         try {
-            HCI_DiagnosisEarlyTreatmentPagePO.getInstance().DiagnosisEarlyTreatmentPageLoad();
+            HCI_DiagnosisEarlyTreatmentPagePO.getInstance().diagnosisEarlyTreatmentPageLoad();
             System.out.println(getProperty("diagnosisEarlyTreatmentSubNavUrl"));
             pageScroll("window.scrollBy(0,200)");
             Assert.assertEquals(getCssValueFontSize_42pxH1(), "42px");
