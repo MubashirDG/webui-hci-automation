@@ -16,7 +16,11 @@ public class HCI_HomePagePO extends BasePO {
     private static HCI_HomePagePO hci_HomePagePO;
 
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
-
+    private By hyperthermiaMainNav = By.xpath("//span[text()='HYPERTHERMIA']");
+    private By hyperthermiaSubNav = By.xpath("//span[text()='Hyperthermia']");
+    private By detSubNav = By.xpath("//a[text()='Diagnosis & Early Treatment']");
+    private By hcSubNav = By.xpath("//a[text()='Hyperthermia & Chemotherapy']");
+    private By hrtSubNav = By.xpath("//a[text()='Hyperthermia & Radiation Therapy']");
     private HCI_HomePagePO() {
         super();
     }
@@ -27,14 +31,14 @@ public class HCI_HomePagePO extends BasePO {
         }
         return hci_HomePagePO;
     }
-    public void HomePageLoad()throws Exception{
+    public void homePageLoad()throws Exception{
         try {
             Common.implicitlyWait(50);
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : enterFirstName()" + e.getLocalizedMessage());
         }
     }
-    public void PlayVideo1() throws Exception {
+    public void playVideo1() throws Exception {
         try {
             WebElement videoImage = singleton.getDriver().findElement(By.xpath("//div[@class='elementor-element elementor-element-9208e49 elementor-widget elementor-widget-image']//img[@class='attachment-full size-full']"));
             Common.implicitlyWait(80);
@@ -64,15 +68,22 @@ public class HCI_HomePagePO extends BasePO {
             throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
         }
     }
+    public void selectHyperthermiaNavBarHyperthermiaSubNav() throws Exception {
+        try {
 
+            //hoverOverElement(hyperthermiaMainNav);
+            WebElement firstElement = singleton.getDriver().findElement(hyperthermiaMainNav);
+            WebElement secondElement = singleton.getDriver().findElement(hyperthermiaSubNav);
+            Actions actions = new Actions(singleton.getDriver());
+            actions.moveToElement(firstElement);
+            actions.click(secondElement);
+            actions.build().perform();;
+            //Common.waitTillVisibilityOfElementLocated(singleton.getDriver(), hyperthermiaSubNav,20);
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : selectHyperthermiaNavBarHyperthermiaSubNav()" + e.getLocalizedMessage());
+        }
+    }
 
-//    public boolean isVideoPlaySuccess() throws Exception {
-//        try {
-//            WebElement isVideoPlay = singleton.getDriver().findElement(By.xpath("end time"));
-//            return isVideoPlay.isDisplayed();
-//
-//        } catch (NoSuchElementException e) {
-//            throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
-//        }
-//    }
 }
+
+

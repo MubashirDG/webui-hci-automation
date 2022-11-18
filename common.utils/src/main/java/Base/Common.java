@@ -265,6 +265,16 @@ public class Common {
         }
     }
 
+    public static WebElement waitTillVisibilityOfElementLocated(WebDriver driver, By locator, int timeOutInSecond) throws Exception {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, timeOutInSecond);
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return element;
+        } catch (NoSuchElementException e) {
+            throw new Exception("Failed : waitTillVisibilityOfElementLocated()" + e.getLocalizedMessage());
+        }
+    }
+
 
 
 }

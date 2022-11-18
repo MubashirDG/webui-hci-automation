@@ -8,11 +8,13 @@
 
             <class name="web.test.HCITests.HCIPages.HCI_HomePageTests">
                 <methods>
-                    <include name="VerifyHomePageFontSizes"></include>
-                    <include name="VerifyHomePagePlayVideo"></include>
+                    <include name="verifyHomePageFontSizes"></include>
+<!--                    <include name="verifyHomePagePlayVideo"></include>-->
+                    <include name="verifyHyperthermiaNavBarHyperthermiaSubNav"></include>
                 </methods>
             </class>
-            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>
+            <class name="web.test.HCITests.HCIPages.HCI_HyperthermiaPageTest"/>
+<!--            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>-->
         </classes>
     </test>
 </suite>
