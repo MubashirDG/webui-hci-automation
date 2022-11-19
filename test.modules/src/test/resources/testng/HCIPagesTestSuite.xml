@@ -9,7 +9,7 @@
             <class name="web.test.HCITests.HCIPages.HCI_HomePageTests">
                 <methods>
                     <include name="verifyHomePageFontSizes"></include>
-<!--                    <include name="verifyHomePagePlayVideo"></include>-->
+                    <include name="verifyHomePagePlayVideo"></include>
                     <include name="verifyRedirectHyperthermiaSubNav"></include>
                 </methods>
             </class>
@@ -40,7 +40,15 @@
                 </methods>
             </class>
 
-<!--            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>-->
+            <class name="web.test.HCITests.HCIPages.HCI_WhatToExpectPageTests">
+                <methods>
+                    <include name="verifyWhatToExpectPageFontSizes"></include>
+                    <include name="verifyWhatToExpectPlayVideo"></include>
+                    <include name="verifyRedirectPlanYourVisitSubNav"></include>
+                </methods>
+            </class>
+
+            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>
         </classes>
     </test>
 </suite>
