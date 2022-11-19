@@ -27,7 +27,7 @@ public class HCI_DiagnosisEarlyTreatmentPageTests extends Common {
             Thread.sleep(3000);
             backToTop();
         } catch (Exception e) {
-            log.info("Failed : verifyHyperthermiaPageFontSizes ");
+            log.info("Failed : verifyDiagnosisEarlyTreatmentPageFontSizes");
             throw e;
         }
     }
