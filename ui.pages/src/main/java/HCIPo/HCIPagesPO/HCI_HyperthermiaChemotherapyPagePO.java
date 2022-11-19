@@ -11,7 +11,7 @@ public class HCI_HyperthermiaChemotherapyPagePO extends BasePO {
     private static HCI_HyperthermiaChemotherapyPagePO hciHyperthermiaChemotherapyPagePO;
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
     private By hyperthermiaMainNav = By.xpath("//span[text()='HYPERTHERMIA']");
-    private By hyperthermiaRadiationTherapy = By.xpath("//span[text()='Hyperthermia & Radiation Therapy']");
+    private By hyperthermiaRadiationTherapySubNav = By.xpath("//span[text()='Hyperthermia & Radiation Therapy']");
     private HCI_HyperthermiaChemotherapyPagePO() {
         super();
     }
@@ -33,7 +33,7 @@ public class HCI_HyperthermiaChemotherapyPagePO extends BasePO {
     public void selectHyperthermiaRadiationTherapySubNav() throws Exception {
         try {
             hoverOverElement(hyperthermiaMainNav);
-            WebElement subNav = singleton.getDriver().findElement(hyperthermiaRadiationTherapy);
+            WebElement subNav = singleton.getDriver().findElement(hyperthermiaRadiationTherapySubNav);
             Common.waitForElementToBeClickable(singleton.getDriver(),subNav ,10);
             subNav.click();
         } catch (NoSuchElementException e) {

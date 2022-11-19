@@ -25,7 +25,7 @@ public class HCI_HyperthermiaChemotherapyPageTests extends Common {
             Thread.sleep(3000);
             backToTop();
         } catch (Exception e) {
-            log.info("Failed : verifyHyperthermiaPageFontSizes ");
+            log.info("Failed : verifyHyperthermiaChemotherapyPageFontSizes");
             throw e;
         }
     }

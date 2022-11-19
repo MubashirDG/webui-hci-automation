@@ -28,7 +28,7 @@ public class HCI_HyperthermiaPageTest extends Common {
             Thread.sleep(3000);
             backToTop();
         } catch (Exception e) {
-            log.info("Failed : verifyHyperthermiaPageFontSizes ");
+            log.info("Failed : verifyHyperthermiaPageFontSizes");
             throw e;
         }
     }

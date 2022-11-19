@@ -33,6 +33,12 @@
                     <include name="verifyRedirectHyperthermiaRadiationTherapySubNav"></include>
                 </methods>
             </class>
+            <class name="web.test.HCITests.HCIPages.HCI_HyperthermiaRadiationTherapyPageTests">
+                <methods>
+                    <include name="verifyHyperthermiaRadiationTherapyPageFontSizes"></include>
+                    <include name="verifyRedirectCancersWeTreatBreastSubNav"></include>
+                </methods>
+            </class>
 
 <!--            <class name="web.test.HCITests.HCIPages.HCI_ContactUsPageTests"/>-->
         </classes>
