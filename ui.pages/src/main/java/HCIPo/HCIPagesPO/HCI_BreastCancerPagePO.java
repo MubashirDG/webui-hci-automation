@@ -8,30 +8,29 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-public class HCI_WhatToExpectPagePO extends BasePO {
-    private static HCI_WhatToExpectPagePO hciWhatToExpectPagePO;
+public class HCI_BreastCancerPagePO extends BasePO {
+    private static HCI_BreastCancerPagePO hciBreastCancerPagePO;
     private SingletonBrowser singleton = SingletonBrowser.getInstance();
-    private By patientsFamiliesMainNav = By.xpath("//span[text()='PATIENTS & FAMILIES']");
-    private By planYourVisiSubNavSubNav = By.xpath("//span[text()='Plan Your Visit']");
-    private HCI_WhatToExpectPagePO() {
+    private By cancersWeTreatMainNav = By.xpath("//span[text()='CANCERS WE TREAT']");
+    private By colonRectalSubNav = By.xpath("//span[text()='Colon & Rectal']");
+    private HCI_BreastCancerPagePO() {
         super();
     }
 
-    public static final HCI_WhatToExpectPagePO getInstance() {
-        if (hciWhatToExpectPagePO == null) {
-            hciWhatToExpectPagePO = new HCI_WhatToExpectPagePO();
+    public static final HCI_BreastCancerPagePO getInstance() {
+        if (hciBreastCancerPagePO == null) {
+            hciBreastCancerPagePO = new HCI_BreastCancerPagePO();
         }
-        return hciWhatToExpectPagePO;
+        return hciBreastCancerPagePO;
     }
-
-    public void hciWhatToExpectPagePageLoad()throws Exception{
+    public void hciBreastCancerPageLoad()throws Exception{
         try {
             Common.implicitlyWait(70);
         } catch (NoSuchElementException e) {
-            throw new Exception("Failed : hciWhatToExpectPagePageLoad()" + e.getLocalizedMessage());
+            throw new Exception("Failed : hciBreastCancerPageLoad()" + e.getLocalizedMessage());
         }
     }
-    public void playVideo2() throws Exception {
+    public void playVideoBreastCancer() throws Exception {
         try {
             WebElement PlayButton = singleton.getDriver().findElement(By.xpath("//div[@role ='button']"));
             Common.waitForVisibilityOf(singleton.getDriver(),PlayButton ,8);
@@ -60,14 +59,14 @@ public class HCI_WhatToExpectPagePO extends BasePO {
             throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
         }
     }
-    public void selectPlanYourVisitSubNav() throws Exception {
+    public void selectCancersWeTreatColonRectalSubNav() throws Exception {
         try {
-            hoverOverElement(patientsFamiliesMainNav);
-            WebElement subNav = singleton.getDriver().findElement(planYourVisiSubNavSubNav);
+            hoverOverElement(cancersWeTreatMainNav);
+            WebElement subNav = singleton.getDriver().findElement(colonRectalSubNav);
             Common.waitForElementToBeClickable(singleton.getDriver(),subNav ,8);
             subNav.click();
         } catch (NoSuchElementException e) {
-            throw new Exception("Failed : selectWhatToExpectSubNav()" + e.getLocalizedMessage());
+            throw new Exception("Failed : selectCancersWeTreatColonRectalSubNav()" + e.getLocalizedMessage());
         }
     }
 }

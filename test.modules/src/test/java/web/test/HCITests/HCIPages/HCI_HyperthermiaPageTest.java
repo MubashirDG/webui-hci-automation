@@ -23,9 +23,8 @@ public class HCI_HyperthermiaPageTest extends Common {
             Assert.assertEquals(getCssValueFontSizes_35pxH2(), "35px");
             pageScroll("window.scrollBy(0,1200)");
             Assert.assertEquals(getCssValueFontSize_20pxPG(), "20px");
-            //Assert.assertEquals(getCssValueFontSize_30pxH2(), "30px");
             pageScroll("window.scrollBy(0,2000)");
-            Thread.sleep(3000);
+            Thread.sleep(1500);
             backToTop();
         } catch (Exception e) {
             log.info("Failed : verifyHyperthermiaPageFontSizes");

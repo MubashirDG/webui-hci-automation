@@ -28,18 +28,16 @@ public class HCI_WhatToExpectPageTests extends Common {
             throw e;
         }
     }
-
     @Test(testName = "verifyWhatToExpectPlayVideo")
     public void verifyWhatToExpectPlayVideo() throws Exception {
         try {
             HCI_WhatToExpectPagePO.getInstance().playVideo2();
+            Thread.sleep(1500);
             backToTop();
-            Thread.sleep(4000);
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : verifyWhatToExpectPlayVideo()" + e.getLocalizedMessage());
         }
     }
-
     @Test(testName = "verifyRedirectPlanYourVisitSubNav")
     public void verifyRedirectPlanYourVisitSubNav() throws Exception {
         try {

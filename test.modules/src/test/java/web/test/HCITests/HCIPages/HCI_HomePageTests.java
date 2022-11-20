@@ -29,8 +29,8 @@ public class HCI_HomePageTests extends Common {
     public void verifyHomePagePlayVideo() throws Exception {
         try {
             HCI_HomePagePO.getInstance().playVideo1();
+            Thread.sleep(1500);
             backToTop();
-            Thread.sleep(4000);
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : VerifyHomePagePlayVideo1()" + e.getLocalizedMessage());
         }
