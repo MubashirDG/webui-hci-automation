@@ -23,7 +23,6 @@ public class HCI_HyperthermiaRadiationTherapyPagePO extends BasePO {
         }
         return hciHyperthermiaRadiationTherapyPagePO;
     }
-
     public void hciHyperthermiaRadiationTherapyPageLoad()throws Exception{
         try {
             Common.implicitlyWait(70);
@@ -35,7 +34,7 @@ public class HCI_HyperthermiaRadiationTherapyPagePO extends BasePO {
         try {
             hoverOverElement(cancersWeTreatMainNav);
             WebElement subNav = singleton.getDriver().findElement(breastSubNav);
-            Common.waitForElementToBeClickable(singleton.getDriver(),subNav ,10);
+            Common.waitForElementToBeClickable(singleton.getDriver(),subNav ,8);
             subNav.click();
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : selectHyperthermiaRadiationTherapySubNav()" + e.getLocalizedMessage());

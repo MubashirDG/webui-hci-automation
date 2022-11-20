@@ -22,7 +22,7 @@ public class HCI_HyperthermiaChemotherapyPageTests extends Common {
             pageScroll("window.scrollBy(0,1000)");
             Assert.assertEquals(getCssValueFontSize_20pxPG(), "20px");
             pageScroll("window.scrollBy(0,2000)");
-            Thread.sleep(3000);
+            Thread.sleep(1500);
             backToTop();
         } catch (Exception e) {
             log.info("Failed : verifyHyperthermiaChemotherapyPageFontSizes");

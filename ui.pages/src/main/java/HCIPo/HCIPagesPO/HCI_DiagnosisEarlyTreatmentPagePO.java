@@ -34,7 +34,7 @@ public class HCI_DiagnosisEarlyTreatmentPagePO extends BasePO {
         try {
             hoverOverElement(hyperthermiaMainNav);
             WebElement subNav = singleton.getDriver().findElement(hyperthermiaChemotherapySubNav);
-            Common.waitForElementToBeClickable(singleton.getDriver(),subNav ,10);
+            Common.waitForElementToBeClickable(singleton.getDriver(),subNav ,8);
             subNav.click();
         } catch (NoSuchElementException e) {
             throw new Exception("Failed : selectHyperthermiaChemotherapySubNav()" + e.getLocalizedMessage());

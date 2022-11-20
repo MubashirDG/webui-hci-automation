@@ -39,7 +39,14 @@
                     <include name="verifyRedirectCancersWeTreatBreastSubNav"></include>
                 </methods>
             </class>
+            <class name="web.test.HCITests.HCIPages.HCI_BreastCancerPageTests">
+                <methods>
+                    <include name="verifyBreastCancerPageFontSizes"></include>
+                    <include name="verifyBreastCancerPlayVideo"></include>
+                    <include name="verifyRedirectCancersWeTreatColonRectalSubNav"></include>
 
+                </methods>
+            </class>
             <class name="web.test.HCITests.HCIPages.HCI_WhatToExpectPageTests">
                 <methods>
                     <include name="verifyWhatToExpectPageFontSizes"></include>
